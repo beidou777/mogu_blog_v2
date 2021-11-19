@@ -17,27 +17,27 @@ jobs:
       with:
         java-version: 1.8
 
-    - name: Set SSH Environment
-      run: |
-        mkdir -p ~/.ssh/
-        echo "${{ secrets.ID_RSA }}" > ~/.ssh/id_rsa
-        echo "${{ secrets.ID_RSA_PUB }}" > ~/.ssh/id_rsa.pub
-        cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-        chmod 600 ~/.ssh/id_rsa
-        chmod 700 ~/.ssh && chmod 700 ~/.ssh/*
-        ls -l ~/.ssh/
-
-    - name: Download config file and replace
-      run: |
-        git clone git@github.com:beidou777/dipper-blog-config.git
-        mv -f ./mogu_prod_configuration/dev_config/mogu_admin/application.yml ./mogu_admin/src/main/resources/application.yml
-        mv -f ./mogu_prod_configuration/dev_config/mogu_eureka/application.yml ./mogu_eureka/src/main/resources/application.yml
-        mv -f ./mogu_prod_configuration/dev_config/mogu_picture/application.yml ./mogu_picture/src/main/resources/application.yml
-        mv -f ./mogu_prod_configuration/dev_config/mogu_sms/application.yml ./mogu_sms/src/main/resources/application.yml
-        mv -f ./mogu_prod_configuration/dev_config/mogu_web/application.yml ./mogu_web/src/main/resources/application.yml
-        mv -f ./mogu_prod_configuration/dev_config/vue_mogu_admin/config.js ./vue_mogu_admin/static/ckeditor/config.js
-        mv -f ./mogu_prod_configuration/dev_config/vue_mogu_admin/prod.env.js ./vue_mogu_admin/config/prod.env.js
-        mv -f ./mogu_prod_configuration/dev_config/vue_mogu_web/prod.env.js ./vue_mogu_web/config/prod.env.js
+#    - name: Set SSH Environment
+#      run: |
+#        mkdir -p ~/.ssh/
+#        echo "${{ secrets.ID_RSA }}" > ~/.ssh/id_rsa
+#        echo "${{ secrets.ID_RSA_PUB }}" > ~/.ssh/id_rsa.pub
+#        cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+#        chmod 600 ~/.ssh/id_rsa
+#        chmod 700 ~/.ssh && chmod 700 ~/.ssh/*
+#        ls -l ~/.ssh/
+#
+#    - name: Download config file and replace
+#      run: |
+#        git clone git@github.com:beidou777/dipper-blog-config.git
+#        mv -f ./mogu_prod_configuration/dev_config/mogu_admin/application.yml ./mogu_admin/src/main/resources/application.yml
+#        mv -f ./mogu_prod_configuration/dev_config/mogu_eureka/application.yml ./mogu_eureka/src/main/resources/application.yml
+#        mv -f ./mogu_prod_configuration/dev_config/mogu_picture/application.yml ./mogu_picture/src/main/resources/application.yml
+#        mv -f ./mogu_prod_configuration/dev_config/mogu_sms/application.yml ./mogu_sms/src/main/resources/application.yml
+#        mv -f ./mogu_prod_configuration/dev_config/mogu_web/application.yml ./mogu_web/src/main/resources/application.yml
+#        mv -f ./mogu_prod_configuration/dev_config/vue_mogu_admin/config.js ./vue_mogu_admin/static/ckeditor/config.js
+#        mv -f ./mogu_prod_configuration/dev_config/vue_mogu_admin/prod.env.js ./vue_mogu_admin/config/prod.env.js
+#        mv -f ./mogu_prod_configuration/dev_config/vue_mogu_web/prod.env.js ./vue_mogu_web/config/prod.env.js
 
     - name: Build Java jar
       run: |
