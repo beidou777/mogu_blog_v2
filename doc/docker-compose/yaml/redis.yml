@@ -1,7 +1,7 @@
 version: '3.1'
 services:
   redis:
-    image: registry.cn-shenzhen.aliyuncs.com/mogublog/redis
+    image: registry.cn-shenzhen.aliyuncs.com/dipper-blog/redis
     restart: always
     container_name: redis
     ports:
@@ -11,7 +11,7 @@ services:
       - ../data/redis_data:/data
     networks:
       - mogu
-      
+
 networks:
   mogu:
     external: true

@@ -2,7 +2,7 @@ version: '3'
 services:
   #授权服务
   mogu_picture:
-    image: registry.cn-shenzhen.aliyuncs.com/mogublog/mogu_picture:latest
+    image: registry.cn-shenzhen.aliyuncs.com/dipper-blog/mogu_picture:latest
     container_name: mogu_picture
     restart: always
     ports:
@@ -13,7 +13,7 @@ services:
       - COMPOSE_PROJECT_NAME=mogu_picture
     volumes:
       - ../log/:/logs/
-      - ../config/mogu_picture/:/config/      
+      - ../config/mogu_picture/:/config/
       - ../data/mogu_data/:/home/mogu_blog/mogu_data/
 networks:
   mogu:
