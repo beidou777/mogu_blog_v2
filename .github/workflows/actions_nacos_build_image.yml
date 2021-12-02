@@ -35,7 +35,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           port: 22
           script: |
-            cd /root/docker-compose/bin
+            cd /rabc/docker-compose/bin
             ./update.sh
           
       # 安装maven依赖
